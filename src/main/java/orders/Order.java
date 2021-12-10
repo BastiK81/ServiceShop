@@ -19,6 +19,7 @@ public class Order {
         return products;
     }
 
+    //TODO: soll um Anzahl der Produkte noch erweitert werden
     public void addProduct (Product product){
         products.put(product.getId(),product);
     }

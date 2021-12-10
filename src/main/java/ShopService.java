@@ -14,7 +14,7 @@ public class ShopService {
         this.productRepo = productRepo;
     }
 
-    public Product addProduct(String name) {
+    public boolean addProduct(String name) {
         return productRepo.addProduct(name);
     }
 
