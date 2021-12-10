@@ -1,6 +1,6 @@
-package main.products;
+package products;
 
-import main.orders.Order;
+import orders.Order;
 
 import java.util.HashMap;
 import java.util.Map;

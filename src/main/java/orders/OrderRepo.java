@@ -1,4 +1,4 @@
-package main.orders;
+package orders;
 
 import java.util.HashMap;
 import java.util.Map;

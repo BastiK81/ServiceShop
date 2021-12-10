@@ -1,9 +1,8 @@
-package main;
 
-import main.orders.Order;
-import main.orders.OrderRepo;
-import main.products.Product;
-import main.products.ProductRepo;
+import orders.Order;
+import orders.OrderRepo;
+import products.Product;
+import products.ProductRepo;
 
 public class Main {
 
