@@ -49,9 +49,19 @@ public class ShopService {
         }
         return stringBuilder.toString();
     }
-
     public void addProductToOrder (Order order, Product product) {
         order.addProduct(product);
     }
 
+    public boolean hasProducts() {
+        return this.productRepo.getProductList().size() > 0;
+    }
+
+    public boolean hasOrders() {
+        return this.orderRepo.getOrderList().size() > 0;
+    }
+
+    public String getOrderToString(Order order) {
+        return this.orderRepo.getOrder(order.getId()).toString();
+    }
 }
