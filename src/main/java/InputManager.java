@@ -29,7 +29,7 @@ public class InputManager {
         printMain();
         String input = scanner.next();
         int inputNumber = checkInputToInteger(input);
-        if (input.length() == 1 || (inputNumber > 5) || (inputNumber < 1)) {
+        if (input.length() == 1 || (inputNumber > 5) || (inputNumber < 0)) {
             return;
         }
         switch (inputNumber) {
