@@ -1,3 +1,5 @@
+import orders.Order;
+
 import java.util.Scanner;
 
 public class InputManager {
@@ -9,6 +11,7 @@ public class InputManager {
 
     private Scanner scanner = new Scanner(System.in);
     private ShopService shopService;
+    private Order order;
 
     public InputManager(ShopService shopService) {
         this.shopService = shopService;
@@ -19,8 +22,11 @@ public class InputManager {
         boolean isActive = true;
         while (isActive) {
             System.out.println("0 - Exit");
-            System.out.println("1 - neues Produkt anlegen");
-            System.out.println("2 - alle Produkte anzeigen");
+            System.out.println("1 - Neues Produkt anlegen");
+            System.out.println("2 - Alle Produkte anzeigen");
+            System.out.println("3 - Neue Order anlegen");
+            System.out.println("4 - Produkt zu Order hinzufügen");
+
             String input = scanner.next();
             if (input.length() == 1) {
                 int inputNumber = 0;
@@ -48,6 +54,22 @@ public class InputManager {
                     case 2:
                         System.out.println(shopService.getAllProducts());
                         break;
+                    case 3:
+                        this.order = shopService.addNewOrder();
+                        System.out.println("Order " + order.getId() + " angelegt");
+                    case 4:
+                        System.out.println(shopService.getAllProducts());
+                        System.out.print("Produkt Nummer eingeben: ");
+                        String productID = scanner.next();
+                        int productNumber = 0;
+                        try {
+                            productNumber = Integer.parseInt(productID);
+                        } catch (NumberFormatException e) {
+                            System.out.println("Falsches Format " + e);
+                        }
+
+                        shopService.addProductToOrder(this.order, shopService.getProductById(productNumber));
+
                     default:
                         System.out.println("i liegt nicht zwischen null und drei");
                         break;
